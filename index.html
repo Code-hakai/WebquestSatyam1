@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>webquest apps</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Gupter:wght@400;500;700&family=Matemasie&family=Pacifico&family=Platypi:ital,wght@0,300..800;1,300..800&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Tangerine:wght@400;700&display=swap');
+  
+    img {
+      border-radius: 12px;
+      margin: 63px;
+    }
+    p1 {
+      margin: 63px;
+    }
+    body {
+      background: black;
+       color: white; /* Adding this to make sure text is visible against the black background */
+      font-size: 3em;
+    }
+  hakai{
+    margin: 10px;
+  }
+  h1,p{
+    margin: 63px;
+  }
+  /* Importing Google font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+p1 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+p1 span {
+    color: #BD53ED;
+    position: relative;
+}
+  
+h2{
+  color: white;
+   font-family: "Matemasie", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+p1 span::before {
+    content: "";
+    height: 140px;
+    width: 2px;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    background: #BD53ED;
+    transform: translateY(-45%);
+    animation: blink 0.7s infinite;
+    
+}
+  h1{
+     font-family: "Matemasie", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  }
+
+p1 span.stop-blinking::before {
+    animation: none;
+}
+
+@keyframes blink {
+    50% { opacity: 0 }
+}
+  </style>
+</head>
+<body>
+  <div class="hakai">
+    <h1>Web apps</h1>
+    <hr>
+    <p1>Desgined by <span></span></p1>
+    <hr>
+    <a href="https://google.com/" title="google"> <img src="Op.png" width="35%" alt="google" /> </a>
+  <p>Google</p>
+    <a href="https://play.google.com/store/apps/details?id=com.google.android.dialer" title="phone"> <img src="S.jpg" width="35%" alt="google" /> </a>
+  <p>phone</p>
+    <a href="https://Facebook.com/" title="facebook"> <img src="Bob.png" width="35%" alt="facebook" /> </a>
+  <p>Facebook</p>
+  <a href="h.html" title="chatbot"> <img src="H.jpg" width="35%" alt="Chatbot" /> </a>
+  <p>Chatbot</p>
+  <a href="calculator.html" title="calculator"> <img src="I.jpg" width="35%" alt="Calculator" /> </a>
+  <p>Calculator</p>
+  <a href="vnaaki.html" title="pronouncer"> <img src="Lg.jpg" width="35%" alt="Pronouncer" /> </a>
+  <p>Pronouncer</p>
+<a href="clock.html" title="clock"> <img src="T.jpg" width="35%" alt="clock" /> </a>
+  <p>clock</p> 
+  <a href="yh.html" title="image-generator"> <img src="Image.jpg" width="35%" alt="clock" /> </a>
+  <p>imageart</p>
+  <a href="T.html" title="to-do list"> <img src="8.jpg" width="35%" alt="clock" /> </a>
+  <p>notes</p> 
+  <a href="https://googlemaps.com" title="maps"> <img src="hakai.jpg" width="35%" alt="maps" /> </a>
+  <p>maps</p>
+  <a href="love.html" title="know weather"> <img src="6.jpg" width="35%" alt="weather" /> </a>
+  <p>weather</p> 
+    <a href="tic.html" title="play X 0"> <img src="Hamia.png" width="35%" alt="tic tac toe" /> </a>
+  <p>tic tac toe</p>
+    <a href="s.html" title="know date"> <img src="1.jpg" width="35%" alt="date" /> </a>
+  <p>calender</p>
+    <a href="xxx.html" title="know iq"> <img src="Love.jpg" width="35%" alt="number guess" /> </a>
+  <p>guess num</p>
+  </div>   
+  <script>
+  const dynamicText = document.querySelector("p1 span");
+const words = ["satyam", "HTML", "CSS", "Java", "LOVE"];
+
+// Variables to track the position and deletion status of the word
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const typeEffect = () => {
+    const currentWord = words[wordIndex];
+    const currentChar = currentWord.substring(0, charIndex);
+    dynamicText.textContent = currentChar;
+    dynamicText.classList.add("stop-blinking");
+
+    if (!isDeleting && charIndex < currentWord.length) {
+        // If condition is true, type the next character
+        charIndex++;
+        setTimeout(typeEffect, 200);
+    } else if (isDeleting && charIndex > 0) {
+        // If condition is true, remove the previous character
+        charIndex--;
+        setTimeout(typeEffect, 100);
+    } else {
+        // If word is deleted then switch to the next word
+        isDeleting = !isDeleting;
+        dynamicText.classList.remove("stop-blinking");
+        wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+        setTimeout(typeEffect, 1200);
+    }
+}
+
+typeEffect();
+  </script>
+  <hr>
+  <h2>Thank You</h2>
+</body>
+</html>
